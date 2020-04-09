@@ -283,7 +283,7 @@ void* art_search(const art_tree *t, const unsigned char *key, int key_len) {
         }
 
         // Recursively search
-        child = find_child(n, key[depth]);
+        child = find_child(n, depth < key_len ? key[depth]: 0);
         n = (child) ? *child : NULL;
         depth++;
     }
